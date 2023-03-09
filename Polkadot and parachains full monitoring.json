@@ -73,6 +73,7 @@
   "description": "All in one monitoring for Substrate based Relay chain, Parachains and backups",
   "editable": true,
   "fiscalYearStartMonth": 0,
+  "gnetId": 16863,
   "graphTooltip": 0,
   "id": null,
   "links": [
@@ -131,8 +132,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "rgba(50, 172, 45, 0.97)",
-                    "value": null
+                    "color": "rgba(50, 172, 45, 0.97)"
                   },
                   {
                     "color": "rgba(237, 129, 40, 0.89)",
@@ -217,8 +217,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "rgba(50, 172, 45, 0.97)",
-                    "value": null
+                    "color": "rgba(50, 172, 45, 0.97)"
                   },
                   {
                     "color": "rgba(237, 129, 40, 0.89)",
@@ -304,8 +303,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "rgba(50, 172, 45, 0.97)",
-                    "value": null
+                    "color": "rgba(50, 172, 45, 0.97)"
                   },
                   {
                     "color": "rgba(237, 129, 40, 0.89)",
@@ -382,8 +380,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "rgba(50, 172, 45, 0.97)",
-                    "value": null
+                    "color": "rgba(50, 172, 45, 0.97)"
                   },
                   {
                     "color": "rgba(237, 129, 40, 0.89)",
@@ -483,8 +480,7 @@
                 "mode": "percentage",
                 "steps": [
                   {
-                    "color": "rgba(50, 172, 45, 0.97)",
-                    "value": null
+                    "color": "rgba(50, 172, 45, 0.97)"
                   },
                   {
                     "color": "yellow",
@@ -573,8 +569,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "rgba(50, 172, 45, 0.97)",
-                    "value": null
+                    "color": "rgba(50, 172, 45, 0.97)"
                   },
                   {
                     "color": "rgba(237, 129, 40, 0.89)",
@@ -657,8 +652,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -740,8 +734,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -848,8 +841,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1320,8 +1312,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1884,8 +1875,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2357,8 +2347,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -6509,7 +6498,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "100 - (avg by (chain) (irate(node_cpu_seconds_total{mode=\"idle\",job=\"backup-servers\"}[1m])) * 100)",
+          "expr": "100 - (avg by (chain) (irate(node_cpu_seconds_total{mode=\"idle\",job=\"backup\"}[1m])) * 100)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6524,7 +6513,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "avg by (chain)(node_load15{job=\"backup-servers\"}) / count by (chain)(count by (chain,cpu)(node_cpu_seconds_total{job=\"backup-servers\"})) * 100",
+          "expr": "avg by (chain)(node_load15{job=\"backup\"}) / count by (chain)(count by (chain,cpu)(node_cpu_seconds_total{job=\"backup\"})) * 100",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6539,7 +6528,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "100 - ((node_memory_MemAvailable_bytes{job=\"backup-servers\"} * 100) / node_memory_MemTotal_bytes{job=\"backup-servers\"})",
+          "expr": "100 - ((node_memory_MemAvailable_bytes{job=\"backup\"} * 100) / node_memory_MemTotal_bytes{job=\"backup\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6554,7 +6543,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "100 - (sum by (chain) ((node_filesystem_avail_bytes{job=\"backup-servers\",mountpoint=\"/\"})*100)) / (sum by (chain) (node_filesystem_size_bytes{job=\"backup-servers\",mountpoint=\"/\"}))",
+          "expr": "100 - (sum by (chain) ((node_filesystem_avail_bytes{job=\"backup\",mountpoint=\"/\"})*100)) / (sum by (chain) (node_filesystem_size_bytes{job=\"backup\",mountpoint=\"/\"}))",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6569,7 +6558,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "count(node_cpu_seconds_total{job=\"backup-servers\"}) by (chain)/8",
+          "expr": "count(node_cpu_seconds_total{job=\"backup\"}) by (chain)/8",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6585,7 +6574,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(node_memory_MemTotal_bytes{job=\"backup-servers\"}) by (chain)",
+          "expr": "sum(node_memory_MemTotal_bytes{job=\"backup\"}) by (chain)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6601,7 +6590,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "up{job=\"backup-servers\",instance=~\".*9100\"}",
+          "expr": "up{job=\"backup\",instance=~\".*9100\"}",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6617,7 +6606,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "max by (chain) (irate(node_disk_io_time_seconds_total{job=\"backup-servers\"} [1m]))",
+          "expr": "max by (chain) (irate(node_disk_io_time_seconds_total{job=\"backup\"} [1m]))",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6633,7 +6622,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "100 - (sum by (node) ((node_filesystem_avail_bytes{job=\"backup-servers\",mountpoint=\"/mnt\"})*100)) / (sum by (node) (node_filesystem_size_bytes{job=\"backup-servers\",mountpoint=\"/mnt\"}))",
+          "expr": "100 - (sum by (node) ((node_filesystem_avail_bytes{job=\"backup\",mountpoint=\"/mnt\"})*100)) / (sum by (node) (node_filesystem_size_bytes{job=\"backup\",mountpoint=\"/mnt\"}))",
           "format": "table",
           "hide": true,
           "instant": true,
@@ -6648,7 +6637,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "node_time_seconds{job=\"backup-servers\"} - node_boot_time_seconds{job=\"backup-servers\"}",
+          "expr": "node_time_seconds{job=\"backup\"} - node_boot_time_seconds{job=\"backup\"}",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6663,7 +6652,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (node) (irate(node_network_receive_bytes_total{job=\"backup-servers\"}[5m])*8)",
+          "expr": "sum by (node) (irate(node_network_receive_bytes_total{job=\"backup\"}[5m])*8)",
           "format": "table",
           "hide": true,
           "instant": true,
@@ -7017,7 +7006,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "100 - (avg by (chain) (irate(node_cpu_seconds_total{mode=\"idle\",job='backup-servers'}[1m])) * 100)",
+          "expr": "100 - (avg by (chain) (irate(node_cpu_seconds_total{mode=\"idle\",job='backup'}[1m])) * 100)",
           "interval": "",
           "legendFormat": "{{node}}",
           "range": true,
@@ -7279,7 +7268,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_bytes_total{job='backup-servers'}[5m])*8",
+          "expr": "irate(node_network_receive_bytes_total{job='backup'}[5m])*8",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -7294,7 +7283,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_bytes_total{job='backup-servers'}[5m])*8",
+          "expr": "irate(node_network_transmit_bytes_total{job='backup'}[5m])*8",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -8476,6 +8465,6 @@
   "timezone": "",
   "title": "Polkadot and parachains full monitoring",
   "uid": "9MEg6eTVk",
-  "version": 5,
+  "version": 3,
   "weekStart": ""
 }
